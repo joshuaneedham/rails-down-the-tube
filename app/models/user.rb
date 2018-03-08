@@ -4,6 +4,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
+  validates :name, presence: true
 
   def self.new_with_session(params, session)
     super.tap do |user|
@@ -22,11 +23,11 @@ class User < ApplicationRecord
 		end
   end
   
-  # def first_name
-  #   name.split.first
-  # end
+  def first_name
+    name.split.first
+  end
 
-  # def last_name
-  #   name.split.last
-  # end
+  def last_name
+    name.split.last
+  end
 end
