@@ -1,0 +1,17 @@
+<div class="d-md-flex flex-md-wrap">
+    <% @firearms.each do |f| %>
+        <div class="p-5">
+            <h2>
+                <%= f.name %>
+            </h2>
+            <p><%= f.firearm_type %></p>
+            <p><%= f.description %></p>
+        </div>
+        
+        <% end %>
+</div>
+<br>
+<br>
+<div class="d-flex justify-content-around">
+    <%= link_to 'New Firearm', new_user_firearm_path, class: "btn btn-outline-success" %>
+</div>
