@@ -1,0 +1,11 @@
+<div class="d-md-flex flex-md-wrap">
+    <div class="p-5">
+    <h1>
+        <%= @barrels.caliber %>
+    </h1>
+
+    <%= link_to  "Back", barrels_path, class: "btn btn-outline-secondary" %>
+    <%= link_to  "Edit Barrel", edit_barrels_path(@barrels), class: "btn btn-outline-warning"  %>
+    <%= link_to 'Destroy', barrels_path(@barrels), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+    </div>
+</div>

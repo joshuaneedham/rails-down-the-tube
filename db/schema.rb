@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180308080711) do
+ActiveRecord::Schema.define(version: 20180309224745) do
+
+  create_table "barrels", force: :cascade do |t|
+    t.string "caliber"
+    t.string "barrel_type"
+    t.decimal "length"
+    t.decimal "twist"
+    t.string "contour"
+    t.string "rifling"
+  end
 
   create_table "firearms", force: :cascade do |t|
     t.string "name"

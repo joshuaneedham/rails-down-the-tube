@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resource :user do
     resources :firearms, shallow: true
   end
+  resource :barrels
+  resource :outings
  
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
