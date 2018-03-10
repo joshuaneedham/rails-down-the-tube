@@ -1,21 +1,23 @@
+<h1>Barrels</h1>
 <div class="d-md-flex flex-md-wrap">
-        <% [@barrels].each do |f| %>
-        <div class="p-5">
-                Caliber: <%= barrel.caliber %> <br>
-                Type: <%= barrel.barrel_type %> <br>
-                Length: <%= barrel.length %>" <br>
-                Twist: 1:<%= barrel.twist %> <br>
-                Contour: <%= barrel.contour %> <br>
-                Rifling: <%= barrel.rifling %> <br>
-                <br>
-                <%= link_to  "Show", barrel_path(f), class: "btn btn-outline-success" %>
-                <%= link_to  "Edit", edit_barrel_path(f), class: "btn btn-outline-warning" %>
-                <%= link_to 'Destroy', barrel_path(f), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-            </div>
-            <% end %>
+
+  <% @barrels.each do |b| %>
+      <div class="p-5">
+        Caliber: <%= b.caliber %> <br>
+        Type: <%= b.barrel_type %> <br>
+        Length: <%= b.length %>" <br>
+        Twist: 1:<%= b.twist %> <br>
+        Contour: <%= b.contour %> <br>
+        Rifling: <%= b.rifling %> <br>
+        <br>
+        <%= link_to 'Show', barrel_path(b), class: "btn btn-primary" %>
+        <%= link_to 'Edit', edit_barrel_path(b), class: "btn btn-warning" %>
+        <%= link_to 'Destroy', barrel_path(b), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+        <br>
+      </div>
+      <% end %>
 </div>
-<br>
-<br>
+<br><br>
 <div class="d-flex justify-content-around">
-    <%= link_to 'New Barrel', new_barrels_path, class: "btn btn-outline-success" %>
+<%= link_to 'New Barrel', new_barrel_path, class: "btn btn-outline-success" %>
 </div>

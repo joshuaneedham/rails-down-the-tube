@@ -1,6 +1,6 @@
-<h2>Edit a barrel</h2>
-<%= form_for(@barrel) do |f| %>
-    <h5><%= f.label :caliber, "Name" %></h5><%= f.text_field :caliber %> 
-    <%= f.submit 'Update Barrel', class: "btn" %>
-<% end %>
-<%= link_to  "Back", firearm_barrels_path, class: "btn btn-outline-secondary" %>
+<h1>New Barrel</h1>
+
+<%= render 'edit_barrel', barrel: @barrel %>
+
+<%= link_to 'Back', barrels_path, class: "btn btn-secondary" %>
+

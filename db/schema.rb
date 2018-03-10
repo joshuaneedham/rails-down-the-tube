@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180309224745) do
+
+ActiveRecord::Schema.define(version: 20180310032008) do
+
 
   create_table "barrels", force: :cascade do |t|
     t.string "caliber"
@@ -19,6 +21,10 @@ ActiveRecord::Schema.define(version: 20180309224745) do
     t.decimal "twist"
     t.string "contour"
     t.string "rifling"
+
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+
   end
 
   create_table "firearms", force: :cascade do |t|
@@ -26,6 +32,8 @@ ActiveRecord::Schema.define(version: 20180309224745) do
     t.string "firearm_type"
     t.text "description"
     t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_firearms_on_user_id"
   end
 

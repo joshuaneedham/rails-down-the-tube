@@ -1,8 +1,9 @@
-<h1>Create Barrel</h1>
+<h1>Edit Barrel</h1>
 <%= form_for(@barrel) do |f| %>
   <% if barrel.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(barrel.errors.count, "error") %> prohibited this barrel from being saved:</h2>
+
       <ul>
       <% barrel.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -28,8 +29,6 @@
 
   <h5><%= f.label :rifling %></h5>
     <%= f.text_field :rifling, id: :barrel_rifling %>
-
 <br><br>
-   <%= f.submit 'Create Barrel', class: "btn btn-primary" %>
+   <%= f.submit 'Edit Barrel', class: "btn btn-primary" %>
   <% end %>
->>>>>>> barrels
