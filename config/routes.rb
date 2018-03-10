@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :barrels
   resource :user do
     resources :firearms, shallow: true
   end

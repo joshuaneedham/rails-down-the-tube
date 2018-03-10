@@ -1,5 +1,6 @@
 class FirearmsController < ApplicationController
   before_action :set_firearm, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   def index
     @firearms = current_user.firearms

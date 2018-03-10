@@ -1,0 +1,20 @@
+<h1><%= current_user.first_name %>'s Barrels</h1>
+<h5>Caliber:</h5>
+  <%= @barrel.caliber %>
+  <h5>Barrel type:</h5>
+  <%= @barrel.barrel_type %>
+<br>
+  <h5>Length:</h5>
+  <%= @barrel.length %>"
+<br>
+  <h5>Twist:</h5>
+  1:<%= @barrel.twist %>
+<br>
+  <h5>Contour:</h5>
+  <%= @barrel.contour %>
+<br>
+  <h5>Rifling Type:</h5>
+  <%= @barrel.rifling %>
+<br><br>
+<%= link_to 'Edit', edit_barrel_path(@barrel), class: "btn btn-outline-warning" %>
+<%= link_to 'Back', barrels_path, class: "btn btn-outline-secondary" %>
