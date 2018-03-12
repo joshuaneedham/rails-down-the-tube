@@ -1,4 +1,4 @@
 class Outing < ApplicationRecord
-  has_many :firearms
-  has_many :barrels, through: :firearms
+  belongs_to :user
+  belongs_to :firearm
 end

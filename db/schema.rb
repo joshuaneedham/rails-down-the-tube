@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180310012638) do
+ActiveRecord::Schema.define(version: 20180312230817) do
 
   create_table "barrels", force: :cascade do |t|
     t.string "caliber"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20180310012638) do
     t.string "rifling"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "firearm_id"
+    t.index ["firearm_id"], name: "index_barrels_on_firearm_id"
   end
 
   create_table "firearms", force: :cascade do |t|
@@ -38,6 +40,10 @@ ActiveRecord::Schema.define(version: 20180310012638) do
     t.integer "shots_fired"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "firearm_id"
+    t.integer "user_id"
+    t.index ["firearm_id"], name: "index_outings_on_firearm_id"
+    t.index ["user_id"], name: "index_outings_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,5 +1,5 @@
 class Barrel < ApplicationRecord
-  has_one :firearm
-  has_many :outings, through: :firearms
+  belongs_to :firearm
+  belongs_to :user, through: :firearm
 end
 
