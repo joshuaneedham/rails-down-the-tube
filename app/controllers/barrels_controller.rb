@@ -44,10 +44,6 @@ class BarrelsController < ApplicationController
   end
 
   def barrel_params
-    params.require(:barrel).permit(:caliber,
-                                   :barrel_type,
-                                   :length,
-                                   :contour,
-                                   :rifling)
+    params.require(:barrel).permit(:caliber, :barrel_type, :length, :contour, :rifling)
   end
 end

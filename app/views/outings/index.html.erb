@@ -1,0 +1,18 @@
+<h1>Outings</h1>
+<div class="d-md-flex flex-md-wrap">
+
+  <% @outings.each do |o| %>
+      <div class="p-5">
+        Shots Fired: <%= o.shots_fired %> <br>
+        <br>
+        <%= link_to 'Show', outing_path(o), class: "btn btn-primary" %>
+        <%= link_to 'Edit', edit_outing_path(o), class: "btn btn-warning" %>
+        <%= link_to 'Destroy', outing_path(o), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+        <br>
+      </div>
+      <% end %>
+</div>
+<br><br>
+<div class="d-flex justify-content-around">
+<%= link_to 'New Outing', new_outing_path, class: "btn btn-outline-success" %>
+</div>

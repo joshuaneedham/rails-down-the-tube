@@ -1,0 +1,4 @@
+class Barrel < ApplicationRecord
+
+end
+

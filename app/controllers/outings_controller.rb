@@ -7,7 +7,7 @@ class OutingsController < ApplicationController
   end
 
   def show
-    @barrel = Barrel.find_by(id: params[:id])
+    @barrel = Outing.find_by(id: params[:id])
   end
 
   def new
@@ -39,7 +39,7 @@ class OutingsController < ApplicationController
   private
 
   def set_outing
-    @outing = Outing.find(id: params[:id])
+    @outing = Outing.find_by(id: params[:id])
   end
 
   def outing_params

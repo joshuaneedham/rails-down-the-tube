@@ -1,0 +1,7 @@
+<h1><%= current_user.first_name %>'s Barrels</h1>
+<h5>Shots Fired:</h5>
+  <%= @outing.shots_fired %>
+ <br><br>
+<%= link_to 'Edit', edit_outing_path(@outing), class: "btn btn-outline-warning" %>
+<%= link_to 'Back', outings_path, class: "btn btn-outline-secondary" %>
+<%= link_to 'Destroy', outing_path(@outing), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
