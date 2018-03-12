@@ -1,3 +1,0 @@
-class Barrel < ApplicationRecord
-end
-
