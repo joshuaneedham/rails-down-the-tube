@@ -11,7 +11,8 @@
       </ul>
     </div>
   <% end %>
-
+<h5><%= f.label :date %></h5>
+    <%= f.date :date, id: :outing_date %>
   <h5><%= f.label :shots_fired %></h5>
     <%= f.text_field :shots_fired, id: :outing_shots_fired %>
 <br><br>
