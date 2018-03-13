@@ -27,7 +27,7 @@ class FirearmsController < ApplicationController
 
   def update
     if @firearm.update(firearm_params)
-      redirect_to user_firearms_path, notice: 'Recipe was successfully updated'
+      redirect_to @firearm
     else
       render :edit
     end
@@ -35,7 +35,7 @@ class FirearmsController < ApplicationController
 
   def destroy
     @firearm.destroy
-    redirect_to user_firearms_path, notice: 'Firearm was successfully destroy. A democrate loves you.'
+    redirect_to firearms_path, notice: 'Firearm was successfully destroy. A democrate loves you.'
   end
 
   private
