@@ -8,7 +8,7 @@
     <h4>Description</h4>
     <%= @firearm.description %>
     <br>
-    <%= link_to  "Back", user_firearms_path, class: "btn btn-outline-secondary" %>
+    <%= link_to  "Back", firearms_path, class: "btn btn-outline-secondary" %>
     <%= link_to  "Edit Firearm", edit_firearm_path(@firearm), class: "btn btn-outline-warning"  %>
     <%= link_to 'Destroy', firearm_path(@firearm), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
     </div>
