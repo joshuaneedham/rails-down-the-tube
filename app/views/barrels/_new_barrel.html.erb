@@ -1,5 +1,5 @@
 <h1>Create Barrel</h1>
-<%= form_for(@barrel) do |f| %>
+<%= form_for([@user, @barrel]) do |f| %>
   <% if barrel.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(barrel.errors.count, "error") %> prohibited this barrel from being saved:</h2>
@@ -32,4 +32,3 @@
 <br><br>
    <%= f.submit 'Create Barrel', class: "btn btn-primary" %>
   <% end %>
->>>>>>> barrels

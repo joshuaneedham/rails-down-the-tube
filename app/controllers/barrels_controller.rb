@@ -1,6 +1,7 @@
 # Controller for Barrels
 class BarrelsController < ApplicationController
   before_action :set_barrel, only: %i[show edit new update destroy index]
+  before_action :current_user
   before_action :authenticate_user!
 
   def index
@@ -44,6 +45,6 @@ class BarrelsController < ApplicationController
   end
 
   def barrel_params
-    params.require(:barrel).permit(:caliber, :barrel_type, :length, :contour, :rifling)
+    params.require(:barrel).permit(:caliber, :barrel_type, :length, :contour, :rifling, :firearm_id, :outing_id, :user_id)
   end
 end

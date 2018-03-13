@@ -45,6 +45,8 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'pry'
   gem 'pry-rails'
+  gem 'dotenv-rails'
+  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 end
 
 group :development do
@@ -64,5 +66,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 gem 'omniauth-facebook'
-gem 'dotenv-rails', groups: [:development, :test]
 gem 'awesome_print'

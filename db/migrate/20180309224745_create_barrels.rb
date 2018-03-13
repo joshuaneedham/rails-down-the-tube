@@ -7,8 +7,12 @@ class CreateBarrels < ActiveRecord::Migration[5.1]
       t.decimal :twist
       t.string :contour
       t.string :rifling
+      t.references :firearm, foreign_key: true
+      t.references :outing, foreign_key: true
+      t.references :user, foreign_key: true
 
       t.timestamps null: false
+
     end
   end
 end
