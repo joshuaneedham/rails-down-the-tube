@@ -27,7 +27,7 @@ class FirearmsController < ApplicationController
 
   def update
     if @firearm.update(firearm_params)
-      redirect_to @firearm
+      redirect_to @firearm, notice: 'Firearm was successfully updated'
     else
       render :edit
     end
