@@ -1,5 +1,6 @@
 class FirearmsController < ApplicationController
   before_action :set_firearm, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   def index
     @firearms = current_user.firearms
@@ -26,7 +27,7 @@ class FirearmsController < ApplicationController
 
   def update
     if @firearm.update(firearm_params)
-      redirect_to user_firearms_path, notice: 'Recipe was successfully updated'
+      redirect_to @firearm, notice: 'Recipe was successfully updated'
     else
       render :edit
     end
