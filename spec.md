@@ -2,7 +2,7 @@
 
 Specs:
 - [x] Using Ruby on Rails for the project
-- [x] Include at least one has_many relationship (x has_many y e.g. User has_many Recipes) 
+- [x] Include at least one has_many relationship (x has_many y e.g. User has_many Recipes)
 - [x] Include at least one belongs_to relationship (x belongs_to y e.g. Post belongs_to User)
 - [ ] Include at least one has_many through relationship (x has_many y through z e.g. Recipe has_many Items through Ingredients)
 - [ ] The "through" part of the has_many through includes at least one user submittable attribute (attribute_name e.g. ingredients.quantity)
@@ -22,3 +22,4 @@ Confirm:
 - [ ] Limited logic in controllers
 - [ ] Views use helper methods if appropriate
 - [x] Views use partials if appropriate
+
