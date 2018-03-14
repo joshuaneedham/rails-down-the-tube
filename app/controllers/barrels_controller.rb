@@ -5,11 +5,11 @@ class BarrelsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @barrels = Barrel.all
+    @barrels = current_user.barrels.build
   end
 
   def show
-    @barrel = Barrel.find_by(id: params[:id])
+    @barrel = current_user.barrels.build
   end
 
   def new
@@ -45,6 +45,6 @@ class BarrelsController < ApplicationController
   end
 
   def barrel_params
-    params.require(:barrel).permit(:caliber, :barrel_type, :length, :contour, :rifling, :firearm_id, :outing_id, :user_id)
+    params.require(:barrel).permit(:caliber, :barrel_type, :length, :contour, :rifling, :firearm_id)
   end
 end

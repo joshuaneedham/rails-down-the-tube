@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180310012638) do
+ActiveRecord::Schema.define(version: 20180314192847) do
+
+  create_table "barrel_outings", force: :cascade do |t|
+    t.integer "barrel_id"
+    t.integer "outing_id"
+    t.integer "shots_fired"
+    t.index ["barrel_id"], name: "index_barrel_outings_on_barrel_id"
+    t.index ["outing_id"], name: "index_barrel_outings_on_outing_id"
+  end
 
   create_table "barrels", force: :cascade do |t|
     t.string "caliber"
@@ -20,39 +28,27 @@ ActiveRecord::Schema.define(version: 20180310012638) do
     t.string "contour"
     t.string "rifling"
     t.integer "firearm_id"
-    t.integer "outing_id"
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["firearm_id"], name: "index_barrels_on_firearm_id"
-    t.index ["outing_id"], name: "index_barrels_on_outing_id"
-    t.index ["user_id"], name: "index_barrels_on_user_id"
   end
 
   create_table "firearms", force: :cascade do |t|
     t.string "name"
     t.string "firearm_type"
     t.text "description"
-    t.integer "barrel_id"
-    t.integer "outing_id"
+    t.integer "current_barrel"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["barrel_id"], name: "index_firearms_on_barrel_id"
-    t.index ["outing_id"], name: "index_firearms_on_outing_id"
     t.index ["user_id"], name: "index_firearms_on_user_id"
   end
 
   create_table "outings", force: :cascade do |t|
     t.datetime "date"
-    t.integer "shots_fired"
-    t.integer "barrel_id"
-    t.integer "firearm_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["barrel_id"], name: "index_outings_on_barrel_id"
-    t.index ["firearm_id"], name: "index_outings_on_firearm_id"
     t.index ["user_id"], name: "index_outings_on_user_id"
   end
 

@@ -1,10 +1,10 @@
 class FirearmsController < ApplicationController
   before_action :set_firearm, only: %i[show edit update destroy]
-  before_action :current_user
   before_action :authenticate_user!
 
   def index
     @firearms = Firearm.all
+    @firearms = current_user.firearms
   end
 
   def show
@@ -12,13 +12,13 @@ class FirearmsController < ApplicationController
   end
 
   def new
-    @firearm = Firearm.new
+    @firearm = current_user.firearms.build
   end
 
   def edit; end
 
   def create
-    @firearm = Firearm.create(firearm_params)
+    @firearm = current_user.firearms.build(firearm_params)
     if @firearm.save
       redirect_to @firearm, notice: 'Your new firearm was created'
     else
@@ -28,7 +28,7 @@ class FirearmsController < ApplicationController
 
   def update
     if @firearm.update(firearm_params)
-      redirect_to @firearm
+      redirect_to @firearm, notice: 'Your firearm has been updated'
     else
       render :edit
     end
