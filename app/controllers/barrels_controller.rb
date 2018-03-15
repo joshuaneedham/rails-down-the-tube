@@ -1,23 +1,26 @@
 # Controller for Barrels
 class BarrelsController < ApplicationController
-  before_action :set_barrel, only: %i[show edit new update destroy index]
-  before_action :current_user
+  before_action :set_barrel, only: %i[show edit update destroy]
   before_action :authenticate_user!
 
   def index
-    @barrels = current_user.barrels.build
+    @barrels = Barrel.all
+    @barrels = current_user.barrels
   end
 
   def show
-    @barrel = current_user.barrels.build
+    @barrel = Barrel.find_by(id: params[:id])
   end
 
   def new
-    @barrel = Barrel.new
+    @barrel = current_user.barrels.build
+
   end
 
+  def edit; end
+
   def create
-    @barrel = Barrel.create(barrel_params)
+    @barrel = current_user.barrels.build(barrel_params)
     if @barrel.save
       redirect_to @barrel, notice: 'Barrel was added'
     else
@@ -25,7 +28,9 @@ class BarrelsController < ApplicationController
     end
   end
 
+
   def update
+    @barrel.update(barrel_params)
     if @barrel.update(barrel_params)
       redirect_to @barrel, notice: 'Barrel has been updated'
     else

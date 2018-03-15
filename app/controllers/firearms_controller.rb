@@ -24,7 +24,7 @@ class FirearmsController < ApplicationController
     else
       render :new
     end
-    end
+  end
 
   def update
     if @firearm.update(firearm_params)
