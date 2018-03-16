@@ -1,23 +1,32 @@
 <h1>Barrels</h1>
 <div class="d-md-flex flex-md-wrap">
-
-  <% @barrels.each do |b| %>
-      <div class="p-5">
-        Caliber: <%= b.caliber %> <br>
-        Type: <%= b.barrel_type %> <br>
-        Length: <%= b.length %>" <br>
-        Twist: 1:<%= b.twist %> <br>
-        Contour: <%= b.contour %> <br>
-        Rifling: <%= b.rifling %> <br>
-        <br>
-        <%= link_to 'Show', barrel_path(b), class: "btn btn-primary" %>
-        <%= link_to 'Edit', edit_barrel_path(b), class: "btn btn-warning" %>
-        <%= link_to 'Destroy', barrel_path(b), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-        <br>
+  <div class="card-group">  <% @barrels.each do |b| %>
+    <div class="p-3"><div class="card mb-3" style="min-width: 18rem;">
+      <div class="card-body">
+        <h5>Caliber:</h5>
+          <span class="align-text-middle"><%= b.caliber %></span>
+          <h5>Type:</h5>
+          <span class="align-text-middle"><%= b.barrel_type %></span>
+          <h5>Length:</h5>
+          <span class="align-text-middle"><%= b.length %>"</span>
+          <h5>Twist:</h5>
+          <span class="align-text-middle">1:<%= b.twist %></span>
+          <h5>Contour:</h5>
+          <span class="align-text-middle"><%= b.contour %></span>
+          <h5>Rifling:</h5>
+          <span class="align-text-middle"><%= b.rifling %></span>
+          <h5>Firearm:</h5>
+          <span class="align-text-middle"><%= b.firearm.name %></span>
+          <br><br>
+          <%= link_to 'Show', barrel_path(b), class: "card-link btn btn-primary" %>
+          <%= link_to 'Edit', edit_barrel_path(b), class: "card-link btn btn-warning" %>
+        <%= link_to 'Destroy', barrel_path(b), method: :delete, data: { confirm: 'Are you sure?' }, class: "card-link btn btn-danger" %></div>
       </div>
-      <% end %>
+    </div>
+    <% end %>
+  </div>
 </div>
 <br><br>
 <div class="d-flex justify-content-around">
-<%= link_to 'New Barrel', new_barrel_path, class: "btn btn-outline-success" %>
+  <%= link_to 'New Barrel', new_barrel_path, class: "btn btn-outline-success" %>
 </div>

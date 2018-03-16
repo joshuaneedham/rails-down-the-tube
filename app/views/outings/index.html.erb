@@ -4,7 +4,6 @@
   <% @outings.each do |o| %>
       <div class="p-5">
         Outing Date: <%= o.date %> <br>
-        Shots Fired: <%= o.shots_fired %> <br>
         <br>
         <%= link_to 'Show', outing_path(o), class: "btn btn-primary" %>
         <%= link_to 'Edit', edit_outing_path(o), class: "btn btn-warning" %>

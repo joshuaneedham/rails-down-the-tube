@@ -21,6 +21,8 @@ class BarrelsController < ApplicationController
 
   def create
     @barrel = current_user.barrels.build(barrel_params)
+    binding.pry
+
     if @barrel.save
       redirect_to @barrel, notice: 'Barrel was added'
     else
@@ -50,6 +52,6 @@ class BarrelsController < ApplicationController
   end
 
   def barrel_params
-    params.require(:barrel).permit(:caliber, :barrel_type, :length, :contour, :rifling, :firearm_id)
+    params.require(:barrel).permit(:caliber, :barrel_type, :length, :twist, :contour, :rifling, :firearm_id)
   end
 end

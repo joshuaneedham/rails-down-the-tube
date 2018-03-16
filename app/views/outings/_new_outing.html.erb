@@ -13,8 +13,7 @@
   <% end %>
 <h5><%= f.label :date %></h5>
 <%= f.date_select :date, id: :date %>
-  <h5><%= f.label :shots_fired %></h5>
-    <%= f.text_field :shots_fired, id: :outing_shots_fired %>
+f.fields_for :firearms do
 <br><br>
    <%= f.submit 'Create Outing', class: "btn btn-primary" %>
   <% end %>
