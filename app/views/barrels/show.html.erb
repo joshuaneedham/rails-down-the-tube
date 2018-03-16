@@ -1,21 +1,27 @@
 <h1><%= current_user.first_name %>'s Barrels</h1>
-<h5>Caliber:</h5>
-  <%= @barrel.caliber %>
-  <h5>Barrel type:</h5>
-  <%= @barrel.barrel_type %>
-<br>
-  <h5>Length:</h5>
-  <%= @barrel.length %>"
-<br>
-  <h5>Twist:</h5>
-  1:<%= @barrel.twist %>
-<br>
-  <h5>Contour:</h5>
-  <%= @barrel.contour %>
-<br>
-  <h5>Rifling Type:</h5>
-  <%= @barrel.rifling %>
-<br><br>
-<%= link_to 'Edit', edit_barrel_path(@barrel), class: "btn btn-outline-warning" %>
-<%= link_to 'Back', barrels_path, class: "btn btn-outline-secondary" %>
-<%= link_to 'Destroy', barrel_path(@barrel), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+<div class="d-md-flex flex-md-wrap">
+  <div class="card-group">
+    <div class="p-3"><div class="card mb-3" style="min-width: 18rem;">
+      <div class="card-body">
+        <h5>Caliber:</h5>
+          <span class="align-text-middle"><%= @barrel.caliber %></span>
+          <h5>Type:</h5>
+          <span class="align-text-middle"><%= @barrel.barrel_type %></span>
+          <h5>Length:</h5>
+          <span class="align-text-middle"><%= @barrel.length %>"</span>
+          <h5>Twist:</h5>
+          <span class="align-text-middle">1:<%= @barrel.twist %></span>
+          <h5>Contour:</h5>
+          <span class="align-text-middle"><%= @barrel.contour %></span>
+          <h5>Rifling:</h5>
+          <span class="align-text-middle"><%= @barrel.rifling %></span>
+          <h5>Firearm:</h5>
+          <span class="align-text-middle"><%= @barrel.firearm.name %></span>
+          <br><br>
+          <%= link_to 'Back', barrels_path, class: "card-link btn btn-primary" %>
+          <%= link_to 'Edit', edit_barrel_path(@barrel), class: "card-link btn btn-warning" %>
+        <%= link_to 'Destroy', barrel_path(@barrel), method: :delete, data: { confirm: 'Are you sure?' }, class: "card-link btn btn-danger" %></div>
+      </div>
+    </div>
+  </div>
+</div>
