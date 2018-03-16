@@ -1,5 +1,5 @@
 <h1>Create Barrel</h1>
-<%= form_for(@barrel) do |f| %>
+<%= form_for([@user, @barrel]) do |f| %>
   <% if barrel.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(barrel.errors.count, "error") %> prohibited this barrel from being saved:</h2>
@@ -28,8 +28,10 @@
 
   <h5><%= f.label :rifling %></h5>
     <%= f.text_field :rifling, id: :barrel_rifling %>
+<br>
+<h5><%= f.label "Select firearm" %></h5>
+    <%= f.collection_select :firearm_id, current_user.firearms, :id, :name, prompt: "Select firearm" %>
 
 <br><br>
    <%= f.submit 'Create Barrel', class: "btn btn-primary" %>
   <% end %>
->>>>>>> barrels
