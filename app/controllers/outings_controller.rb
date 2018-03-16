@@ -3,7 +3,7 @@ class OutingsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @outings = Outing.all
+    @outings = current_user.outings.include(:firearms, :barrels)
   end
 
   def show

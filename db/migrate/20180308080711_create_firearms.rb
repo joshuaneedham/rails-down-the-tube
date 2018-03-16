@@ -5,6 +5,8 @@ class CreateFirearms < ActiveRecord::Migration[5.1]
       t.string :firearm_type
       t.text :description
       t.references :user, foreign_key: true
+      t.references :barrel, foreign_key: true
+      t.references :outing, foreign_key: true
 
       t.timestamps null: false
     end
