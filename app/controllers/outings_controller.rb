@@ -43,6 +43,6 @@ class OutingsController < ApplicationController
   end
 
   def outing_params
-    params.require(:outing).permit(:shots_fired, :date)
+    params.require(:outing).permit(:shots_fired, :date, barrels_attributes: [:caliber, :barrel_type, :length, :twist, :contour, :rifling])
   end
 end

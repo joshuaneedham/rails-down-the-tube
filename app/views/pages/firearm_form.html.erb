@@ -5,3 +5,5 @@ Input barrel info
 Initial shots fired count
 
 
+<h5><%= f.label "Select firearm" %></h5>
+    <%= f.collection_select :firearm_id, current_user.firearms, :id, :name, prompt: "Select firearm" %>

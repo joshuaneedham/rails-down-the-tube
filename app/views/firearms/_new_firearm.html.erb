@@ -1,0 +1,27 @@
+<%= form_for([@user, @firearm]) do |f| %>
+  <h5><%= f.label :name, "Name" %></h5>
+    <%= f.text_field :name %> <br>
+  <h5><%= f.label :firearm_type, "Type" %></h5>
+    <%= f.text_field :firearm_type %> <br>
+  <h5><%= f.label :description,   "Description" %></h5>
+    <%= f.text_area :description %> <br>
+
+    <!-- Add new barrel -->
+    <h3>Add new barrel</h3>
+  <%= f.fields_for :barrels do |  bb| %>
+    <h5><%= bb.label :caliber %></h5>
+      <%= bb.text_field :caliber %>
+    <h5><%= bb.label :barrel_type %></h5>
+      <%= bb.text_field :barrel_type %>
+    <h5><%= bb.label :length %></h5>
+      <%= bb.number_field :length, id: :barrel_length, :step => 0.0001 %>
+    <h5><%= bb.label :twist %></h5>
+      <%= bb.number_field :twist, id: :barrel_twist, :step => 0.0001 %>
+    <h5><%= bb.label :contour %></h5>
+      <%= bb.text_field :contour %>
+    <h5><%= bb.label :rifling %></h5>
+      <%= bb.text_field :rifling %>
+      <% end %>
+      <br>
+<%= f.submit 'Create Firearm', class: "btn" %>
+<% end %>

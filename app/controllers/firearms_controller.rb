@@ -12,6 +12,7 @@ class FirearmsController < ApplicationController
 
   def new
     @firearm = current_user.firearms.build
+    @firearm.barrels.build
   end
 
   def edit; end
@@ -45,6 +46,6 @@ class FirearmsController < ApplicationController
   end
 
   def firearm_params
-    params.require(:firearm).permit(:name, :firearm_type, :description, :user_id)
+    params.require(:firearm).permit(:name, :firearm_type, :description, :user_id, barrels_attributes: [:caliber, :barrel_type, :length, :twist, :contour, :rifling])
   end
 end
