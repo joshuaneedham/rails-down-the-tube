@@ -10,19 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180312230817) do
+ActiveRecord::Schema.define(version: 20180319223819) do
 
   create_table "barrels", force: :cascade do |t|
     t.string "caliber"
     t.string "barrel_type"
-    t.decimal "length"
-    t.decimal "twist"
+    t.decimal "length", precision: 4, scale: 4
+    t.decimal "twist", precision: 4, scale: 4
     t.string "contour"
     t.string "rifling"
+    t.integer "firearm_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "firearm_id"
     t.index ["firearm_id"], name: "index_barrels_on_firearm_id"
+  end
+
+  create_table "barrels_firearms", id: false, force: :cascade do |t|
+    t.integer "barrel_id", null: false
+    t.integer "firearm_id", null: false
+    t.index ["barrel_id", "firearm_id"], name: "index_barrels_firearms_on_barrel_id_and_firearm_id"
+    t.index ["firearm_id", "barrel_id"], name: "index_barrels_firearms_on_firearm_id_and_barrel_id"
   end
 
   create_table "firearms", force: :cascade do |t|
@@ -37,11 +44,12 @@ ActiveRecord::Schema.define(version: 20180312230817) do
 
   create_table "outings", force: :cascade do |t|
     t.datetime "date"
+    t.string "outing_type"
     t.integer "shots_fired"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer "firearm_id"
     t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["firearm_id"], name: "index_outings_on_firearm_id"
     t.index ["user_id"], name: "index_outings_on_user_id"
   end

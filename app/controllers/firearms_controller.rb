@@ -3,7 +3,7 @@ class FirearmsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @firearms = current_user.firearms
+    @firearms = current_user.firearms.includes(:barrels).all
   end
 
   def show
@@ -12,6 +12,7 @@ class FirearmsController < ApplicationController
 
   def new
     @firearm = current_user.firearms.build
+    @firearm.barrels.build
   end
 
   def edit; end
@@ -23,7 +24,7 @@ class FirearmsController < ApplicationController
     else
       render :new
     end
-    end
+  end
 
   def update
     if @firearm.update(firearm_params)
@@ -45,6 +46,6 @@ class FirearmsController < ApplicationController
   end
 
   def firearm_params
-    params.require(:firearm).permit(:name, :firearm_type, :description, :user_id)
+    params.require(:firearm).permit(:name, :firearm_type, :description, :user_id, barrels_attributes: [:caliber, :barrel_type, :length, :twist, :contour, :rifling])
   end
 end

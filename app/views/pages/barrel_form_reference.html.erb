@@ -1,4 +1,10 @@
-<h1>Create Barrel</h1>
+<%= f.fields_for :firearms %>
+<h5><%= ff.label "Select firearm" %></h5>
+    <%= f.collection_select :firearm_id, current_user.firearms, :id, :name, prompt: "Select firearm" %>
+    <% end %>
+
+
+    <h1>Create Barrel</h1>
 <%= form_for([@user, @barrel]) do |f| %>
   <% if barrel.errors.any? %>
     <div id="error_explanation">
@@ -28,9 +34,9 @@
 
   <h5><%= f.label :rifling %></h5>
     <%= f.text_field :rifling, id: :barrel_rifling %>
+<br>
 
-  <h5><%= f.label "Select firearm" %></h5>
-    <%= f.collection_select :firearm_id, current_user.firearms, :id, :name, include_blank: "Select firearm" %>
+
 <br><br>
    <%= f.submit 'Create Barrel', class: "btn btn-primary" %>
   <% end %>

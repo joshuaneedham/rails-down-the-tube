@@ -1,10 +1,10 @@
 # Controller for Barrels
 class BarrelsController < ApplicationController
-  before_action :set_barrel, only: %i[show edit new update destroy index]
+  before_action :set_barrel, only: %i[show edit index update destroy]
   before_action :authenticate_user!
 
   def index
-    @barrels = Barrel.all
+    @barrels = current_user.barrels
   end
 
   def show
@@ -12,11 +12,11 @@ class BarrelsController < ApplicationController
   end
 
   def new
-    @barrel = Barrel.new
+    @barrel = current_user.barrels.build
   end
 
   def create
-    @barrel = Barrel.create(barrel_params)
+    @barrel = current_user.barrels.build(barrel_params)
     if @barrel.save
       redirect_to @barrel, notice: 'Barrel was added'
     else
@@ -44,6 +44,6 @@ class BarrelsController < ApplicationController
   end
 
   def barrel_params
-    params.require(:barrel).permit(:caliber, :barrel_type, :length, :contour, :rifling)
+    params.require(:barrel).permit(:caliber, :barrel_type, :length, :twist, :contour, :rifling, :firearm_id, firearms_attributes: [:name, :firearm_type, :description])
   end
 end
