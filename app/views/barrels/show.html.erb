@@ -9,12 +9,18 @@
           <span class="align-text-middle"><%= @barrel.barrel_type %></span>
           <h5>Length:</h5>
           <span class="align-text-middle"><%= @barrel.length %>"</span>
-          <h5>Twist:</h5>
+          <% if @barrel.twist == nil %>
+          <h4>Twist:</h4>
+          <span class="align-text-middle">N/A</span>
+          <% else %>
+          <h4>Twist:</h4>
           <span class="align-text-middle">1:<%= @barrel.twist %></span>
+          <% end %>
           <h5>Contour:</h5>
           <span class="align-text-middle"><%= @barrel.contour %></span>
           <h5>Rifling:</h5>
           <span class="align-text-middle"><%= @barrel.rifling %></span>
+
           <br><br>
           <%= link_to 'Back', barrels_path, class: "card-link btn btn-primary" %>
           <%= link_to 'Edit', edit_barrel_path(@barrel), class: "card-link btn btn-warning" %>

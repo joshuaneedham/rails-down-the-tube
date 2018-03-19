@@ -3,7 +3,7 @@ class FirearmsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @firearms = current_user.firearms
+    @firearms = current_user.firearms.includes(:barrels).all
   end
 
   def show
@@ -24,7 +24,7 @@ class FirearmsController < ApplicationController
     else
       render :new
     end
-    end
+  end
 
   def update
     if @firearm.update(firearm_params)
