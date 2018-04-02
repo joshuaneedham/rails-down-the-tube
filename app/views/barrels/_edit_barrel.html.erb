@@ -29,6 +29,8 @@
 
   <h5><%= f.label :rifling %></h5>
     <%= f.text_field :rifling, id: :barrel_rifling %>
+  <h5><%= f.label "Select firearm" %></h5>
+    <%= f.collection_select :firearm_id, current_user.firearms, :id, :name, include_blank: "Select firearm" %>
 <br><br>
    <%= f.submit 'Edit Barrel', class: "btn btn-primary" %>
   <% end %>
