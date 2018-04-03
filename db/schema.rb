@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180319223819) do
+ActiveRecord::Schema.define(version: 20180402175434) do
 
   create_table "barrels", force: :cascade do |t|
     t.string "caliber"
@@ -28,8 +28,10 @@ ActiveRecord::Schema.define(version: 20180319223819) do
   create_table "barrels_firearms", id: false, force: :cascade do |t|
     t.integer "barrel_id", null: false
     t.integer "firearm_id", null: false
+    t.integer "user_id"
     t.index ["barrel_id", "firearm_id"], name: "index_barrels_firearms_on_barrel_id_and_firearm_id"
     t.index ["firearm_id", "barrel_id"], name: "index_barrels_firearms_on_firearm_id_and_barrel_id"
+    t.index ["user_id"], name: "index_barrels_firearms_on_user_id"
   end
 
   create_table "firearms", force: :cascade do |t|

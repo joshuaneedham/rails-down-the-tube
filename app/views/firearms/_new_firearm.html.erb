@@ -22,6 +22,10 @@
     <h5><%= bf.label :rifling %></h5>
       <%= bf.text_field :rifling %>
       <% end %>
+      <%= f.fields_for :outings do |of| %>
+    <h5><%= of.label :shots_fired, 'Total Shots Fired' %></h5>
+      <%= of.number_field :shots_fired %>
+      <% end %>
       <br><br>
-<%= f.submit 'Create Firearm', class: "btn" %>
+<%= f.submit 'Create Firearm', class: "btn btn-primary" %>
 <% end %>

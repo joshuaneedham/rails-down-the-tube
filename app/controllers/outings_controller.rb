@@ -11,9 +11,7 @@ class OutingsController < ApplicationController
   end
 
   def new
-
-      @outing = current_user.outings.build
-
+    @outing = current_user.outings.build
   end
 
   def create
@@ -45,6 +43,6 @@ class OutingsController < ApplicationController
   end
 
   def outing_params
-    params.require(:outing).permit(:date, :outing_type, :shots_fired, :user_id, :firearm_id )
+    params.require(:outing).permit(:date, :outing_type, :shots_fired, :user_id, :firearm_id)
   end
 end
