@@ -3,7 +3,7 @@ class OutingsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @outings = current_user.outings.include(:firearms, :barrels)
+    @outings = current_user.outings.all
   end
 
   def show
@@ -11,11 +11,11 @@ class OutingsController < ApplicationController
   end
 
   def new
-    @outing = Outing.new
+    @outing = current_user.outings.build
   end
 
   def create
-    @outing = Outing.new(outing_params)
+    @outing = current_user.outings.build(outing_params)
     if @outing.save
       redirect_to @outing, notice: 'Your outing was created'
     else
