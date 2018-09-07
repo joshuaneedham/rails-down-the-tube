@@ -10,8 +10,10 @@
   </ul>
 </div>
 <% end %>
-<h5><%= f.label :date %></h5>
-<%= f.date_select :date, id: :outing_date %>
+<h5>Current Date:</h5>
+<%= outing.date.strftime("%B %d, %Y") %>
+<h5><%= f.label "New Date if Necessary" %></h5>
+<%= f.date_select('date', order: [:month, :day, :year]) %>
 
 <h5><%= f.label "Firearm used" %></h5>
 <%= f.collection_select :firearm_id, current_user.firearms, :id, :name, include_blank: "Select firearm" %>

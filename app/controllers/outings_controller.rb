@@ -3,7 +3,7 @@ class OutingsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @outings = current_user.outings
+    @outings = current_user.outings.all
   end
 
   def show

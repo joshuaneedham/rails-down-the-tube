@@ -4,7 +4,7 @@ class BarrelsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @barrels = current_user.barrels
+    @barrels = current_user.barrels.all
   end
 
   def show
