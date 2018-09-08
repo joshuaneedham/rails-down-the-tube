@@ -12,7 +12,7 @@
     </div>
   <% end %>
   <h5><%= f.label :outing_type, "Type" %></h5>
-    <%= f.select :outing_type, options_for_select(["Competition/Match","Hunting","Range",], @outing.outing_type), selected: true %>
+    <%= f.select :outing_type, options_for_select(["Match - Competition","Hunting","Range",], @outing.outing_type), selected: true %>
   <h5><%= f.label :date %></h5>
     <%= f.date_select('date', order: [:month, :day, :year]) %>
 

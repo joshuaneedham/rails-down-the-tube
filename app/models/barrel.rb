@@ -7,5 +7,4 @@ class Barrel < ApplicationRecord
       self.firearms << firearm
     end
   end
-
 end

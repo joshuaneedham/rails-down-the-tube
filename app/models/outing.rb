@@ -4,7 +4,7 @@ class Outing < ApplicationRecord
 
 
   def self.comp_match
-    Outing.where(outing_type: "Competition/Match").last.firearm.name
+    Outing.where(outing_type: "Match - Competition").last.firearm.name
   end
 
   def self.hunting
